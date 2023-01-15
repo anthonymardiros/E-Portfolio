@@ -50,7 +50,7 @@ li {
 }
 
 section:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: #f0eeee;
 }
 
 /* NAVIGATION BAR */
