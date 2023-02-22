@@ -10,11 +10,14 @@
       src="https://kit.fontawesome.com/3bc05242f5.js"
       crossorigin="anonymous">
     </script>
+    <script src="./index.js"></script>
   </head>
   <body>
     <section id="about-me">
       <nav>
-        <div class="personal__logo">Anthony Mardiros</div>
+        <figure>
+          <img class="personal__logo" src="./assets/newAM.png" alt="">
+        </figure>
         <ul class="nav__link--list">
           <li class="nav__link">
             <a
@@ -30,10 +33,17 @@
               >Projects</a
             >
           </li class="nav__link">
-          <li>
+          <li class="nav__link">
             <a href="mailto:tonychrism@gmail.com" class="nav__link--anchor nav__link--anchor-primary"
               >Contact</a
             >
+          </li>
+          <li class="nav__link click" onclick="toggleContrast()">
+            <a href="#" class="
+              nav__link--anchor
+              link__hover-effect
+              link__hover-effect--black
+            "><i class="fas fa-adjust"></i></a>
           </li>
         </ul>
       </nav>
@@ -48,14 +58,14 @@
               />
             </figure>
             <h1 class="about-me__info--title">
-              Hey! I'm <span class="text--orange">Anthony Mardiros</span> <span class="wave">👋</span>
+              Hey! I'm <span class="text--red">Anthony Mardiros</span> <span class="wave">👋</span>
             </h1>
             <p class="about-me__info--para">
               I'm a
-              <strong class="text--orange">frontend software engineer</strong>
+              <strong class="text--red">frontend software engineer</strong>
               driven by a desire to craft responsive and high-performing web
               applications that offer well-thought-out user experiences and make
-              meaningful impacts on the world.
+              a meaningful impact on the world.
             </p>
             <div class="about-me__links">
               <a
@@ -103,7 +113,7 @@
       <div class="container">
         <div class="row">
           <h1 class="section__title">
-            This is my <span class="text--orange">technology stack</span>
+            This is my <span class="text--red">technology stack</span>
           </h1>
           <div class="language__list">
             <div class="language">
@@ -182,8 +192,8 @@
     <section id="projects">
       <div class="container">
         <div class="row">
-          <h1 class="section__title">
-            Here are some of my <span class="text--orange">projects</span>
+          <h1 class="section__title section__title--projects">
+            Here are some of my <span class="text--red">projects</span>
           </h1>
           <ul class="project__list">
             <li class="project">

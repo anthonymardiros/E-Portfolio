@@ -11,6 +11,48 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+.dark-theme i,
+.dark-theme .about-me__info--title,
+.dark-theme .about-me__info--para,
+.dark-theme .section__title--projects,
+.dark-theme .project__description--sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-adjust
+{
+  color: white;
+}
+
+.dark-theme section {
+  background-color: #242424;
+  transition: all 300ms ease;
+}
+
+.dark-theme .personal__logo {
+  filter: none;
+  transition: all 300ms ease;
+}
+
+.dark-theme .link__hover-effect--black:after {
+    background-color: white;
+}
+
+.dark-theme .fa-arrow-up {
+    color: black;
+}
+
+/* .dark-theme .scroll__icon {
+  border-color: white;
+} */
+
+/* .dark-theme .mail__btn {
+  background-color: white;
+  color: #242424;
+} */
+
 h1, h2, h3, h4, h5, h6, span {
     color: #242424;
     text-align: center;
@@ -31,8 +73,13 @@ a {
     position: relative;
 }
 
+section {
+    background-color: rgb(245, 245, 245);
+    transition: all 300ms ease;
+}
+
 i {
-    transition: opacity 300ms ease;
+    transition: all 300ms ease;
 }
 
 i:hover {
@@ -75,6 +122,10 @@ li {
     margin-bottom: 20px;
 }
 
+.section__title--projects {
+    transition: all 300ms ease;
+}
+
 .row {
     width: 100%;
     max-width: 800px;
@@ -82,7 +133,7 @@ li {
     padding: 0 12px;
 }
 
-.text--orange {
+.text--red {
     color: rgb(224, 21, 11);
 }
 
@@ -126,10 +177,10 @@ nav {
 }
 
 .personal__logo {
-    font-size: 24px;
-    color: rgb(224, 21, 11);
+    width: 80px;
     margin: 0 12px;
-    font-weight: bold;
+    filter: invert(1);
+    transition: all 300ms ease;
 }
 
 /* ABOUT ME */
@@ -184,12 +235,14 @@ nav {
     font-size: 35px;
     margin-bottom: 16px;
     animation: fade-up 650ms 400ms backwards;
+    transition: all 300ms ease;
 }
 
 .about-me__info--para {
     font-size: 20px;
     margin-bottom: 28px;
     animation: fade-up 650ms 600ms backwards;
+    transition: all 300ms ease;
 }
 
 .about-me__link {
