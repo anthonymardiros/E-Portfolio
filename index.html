@@ -8,15 +8,24 @@
     <link rel="stylesheet" href="./styles.css" />
     <script
       src="https://kit.fontawesome.com/3bc05242f5.js"
-      crossorigin="anonymous">
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js" defer></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("Ih3ds9B0C04WpQCPc");
+      })();
     </script>
-    <script src="./index.js"></script>
   </head>
   <body>
-    <section id="about-me">
+    <section id="about-me" onmousemove="moveBackground(event)">
       <nav>
         <figure>
-          <img class="personal__logo" src="./assets/newAM.png" alt="">
+          <img class="personal__logo" src="./assets/newAM.png" alt="" />
         </figure>
         <ul class="nav__link--list">
           <li class="nav__link">
@@ -32,18 +41,18 @@
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
               >Projects</a
             >
-          </li class="nav__link">
-          <li class="nav__link">
-            <a href="mailto:tonychrism@gmail.com" class="nav__link--anchor nav__link--anchor-primary"
+          </li>
+          <li class="nav__link" onclick="toggleModal()">
+            <a href="#" class="nav__link--anchor nav__link--anchor-primary"
               >Contact</a
             >
           </li>
           <li class="nav__link click" onclick="toggleContrast()">
-            <a href="#" class="
-              nav__link--anchor
-              link__hover-effect
-              link__hover-effect--black
-            "><i class="fas fa-adjust"></i></a>
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              ><i class="fas fa-adjust"></i
+            ></a>
           </li>
         </ul>
       </nav>
@@ -58,14 +67,19 @@
               />
             </figure>
             <h1 class="about-me__info--title">
-              Hey! I'm <span class="text--red">Anthony Mardiros</span> <span class="wave">👋</span>
+              Hey! I'm <span class="text--red">Anthony Mardiros</span>
+              <span class="wave">👋</span>
             </h1>
             <p class="about-me__info--para">
               I'm a
               <strong class="text--red">frontend software engineer</strong>
-              driven by a desire to craft responsive and high-performing web
-              applications that offer well-thought-out user experiences and make
-              a meaningful impact on the world.
+              who is passionate about creating high-quality, user-friendly web
+              applications that foster positive outcomes.
+              <br />
+              Here's a bit more
+              <b class="text--red click button" onclick="toggleModal()"
+                >about me</b
+              >.
             </p>
             <div class="about-me__links">
               <a
@@ -82,11 +96,7 @@
               >
                 <i class="fa-brands fa-github"></i>
               </a>
-              <a
-                href="mailto:tonychrism@gmail.com"
-                class="about-me__link"
-                target="_blank"
-              >
+              <a href="#" class="about-me__link" onclick="toggleModal()">
                 <i class="far fa-envelope"></i>
               </a>
               <a
@@ -99,14 +109,89 @@
             </div>
           </div>
           <figure class="about-me__img--container">
-            <img
-              src="./assets/newclip.svg"
-              class="about-me__img"
-              alt=""
-            />
+            <img src="./assets/newclip.svg" class="about-me__img" alt="" />
           </figure>
         </div>
       </div>
+      <a href="#">
+        <button class="mail__btn click" onclick="toggleModal()">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__title--about">
+            Here's a bit about me.
+          </h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Frontend Software Engineer.
+          </h4>
+          <p class="modal__para">
+            I'm a 22-year-old
+            <b class="text--red">frontend software engineer</b> who'll be
+            graduating from California State University, Fullerton with a degree
+            in Computer Science this spring. I have internship experience as an
+            App Developer at Resilience Inc., where I spent several months
+            learning about <b class="text--red">JavaScript</b>,
+            <b class="text--red">ReactJS</b>, and
+            <b class="text--red">React Native</b>, and applied my knowledge of
+            all three to contribute to the development of an e-learning mobile
+            application. <br /><br />
+            I started my coding journey at 16 years old with Java and C++, and
+            began learning
+            <b class="text--red">frontend development</b> in January of 2022.
+            I've grown increasingly passionate about solving problems and
+            creating <b class="text--red">beautiful web applications</b>. I've
+            created numerous projects utilizing frontend development best
+            practices, some of which can be found in the "Projects" section of
+            this website.
+          </p>
+        </div>
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+          <h4 class="modal__sub-title modal__sub-title--contact">
+            I'm currently open to new opportunities.
+          </h4>
+          <form id="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="form__item--label">Name</label>
+              <input class="input" name="user_name" type="text" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Email</label>
+              <input class="input" name="user_email" type="email" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Message</label>
+              <textarea
+                class="input"
+                name="message"
+                type="text"
+                required
+              ></textarea>
+            </div>
+            <button id="contact__submit" class="form__submit">
+              Send it my way
+            </button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for the message! Looking forward to speaking with you soon.
+          </div>
+        </div>
+      </div>
+      <img src="./assets/semi circle.svg" class="shape shape--0" />
+      <img src="./assets/circle.svg" class="shape shape--1" />
+      <img src="./assets/squiggly.svg" class="shape shape--2" />
+      <img src="./assets/semi circle.svg" class="shape shape--3" />
+      <img src="./assets/triangle.svg" class="shape shape--4" />
+      <img src="./assets/circle.svg" class="shape shape--5" />
+      <img src="./assets/squiggly.svg" class="shape shape--6" />
+      <img src="./assets/circle.svg" class="shape shape--7" />
+      <img src="./assets/semi circle.svg" class="shape shape--8" />
     </section>
 
     <section id="languages">
@@ -205,7 +290,9 @@
                 />
                 <div class="project__description">
                   <h3 class="project__description--title">Library</h3>
-                  <h4 class="project__description--sub-title">HTML, CSS, JavaScript</h4>
+                  <h4 class="project__description--sub-title">
+                    HTML, CSS, JavaScript
+                  </h4>
                   <p class="project__description--para">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Quisquam sed hic consequuntur sequi repudiandae consequatur
@@ -240,7 +327,9 @@
                 />
                 <div class="project__description">
                   <h3 class="project__description--title">Car sales project</h3>
-                  <h4 class="project__description--sub-title">HTML, CSS, javascript, nodejs</h4>
+                  <h4 class="project__description--sub-title">
+                    HTML, CSS, javascript, nodejs
+                  </h4>
                   <p class="project__description--para">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Quisquam sed hic consequuntur sequi repudiandae consequatur
@@ -330,9 +419,9 @@
             >LinkedIn</a
           >
           <a
-            href="mailto:tonychrism@gmail.com"
+            href="#"
             class="footer__social--link link__hover-effect link__hover-effect--white"
-            target="_blank"
+            onclick="toggleModal()"
             >Email</a
           >
           <a

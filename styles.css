@@ -13,45 +13,52 @@ html {
 
 body {
     background-color: rgb(245, 245, 245);
+    min-width: 309px;
 }
 
 .dark-theme i,
+.dark-theme .mail__btn,
 .dark-theme .about-me__info--title,
 .dark-theme .about-me__info--para,
-.dark-theme .section__title--projects,
+.dark-theme footer,
+.dark-theme .section__title,
 .dark-theme .project__description--sub-title,
 .dark-theme .nav__link--anchor,
-.dark-theme .fa-adjust
+.dark-theme .fa-adjust,
+.dark-theme .language__name,
+.dark-theme .footer__logo--popper,
+.dark-theme .fa-arrow-up:before
 {
   color: white;
+  transition: all 300ms ease;
 }
 
-.dark-theme section {
+.dark-theme .link__hover-effect:after {
+    background-color: white;
+}
+
+.dark-theme footer, 
+.dark-theme .footer__social--link {
+    background-color: #242424;
+    color: white;
+}
+
+.dark-theme section,
+.dark-theme #languages,
+.dark-theme {
   background-color: #242424;
   transition: all 300ms ease;
 }
 
-.dark-theme .personal__logo {
+.dark-theme .personal__logo,
+.dark-theme .footer__logo--img {
   filter: none;
   transition: all 300ms ease;
 }
 
-.dark-theme .link__hover-effect--black:after {
-    background-color: white;
+.dark-theme .footer__logo--img {
+    filter: invert(1);
 }
-
-.dark-theme .fa-arrow-up {
-    color: black;
-}
-
-/* .dark-theme .scroll__icon {
-  border-color: white;
-} */
-
-/* .dark-theme .mail__btn {
-  background-color: white;
-  color: #242424;
-} */
 
 h1, h2, h3, h4, h5, h6, span {
     color: #242424;
@@ -61,6 +68,14 @@ h1, h2, h3, h4, h5, h6, span {
 
 h1 {
     font-size: 36px;
+}
+
+h3 {
+    padding-bottom: 12px;
+}
+
+h4 {
+    padding-bottom: 24px;
 }
 
 p {
@@ -73,9 +88,58 @@ a {
     position: relative;
 }
 
-section {
-    background-color: rgb(245, 245, 245);
+button {
+    cursor: pointer;
+}
+
+.click {
+    cursor: pointer;
     transition: all 300ms ease;
+}
+
+.click:hover {
+    transform: scale(1.1);
+}
+
+.click:active {
+    transform: scale(0.8);
+}
+
+section {
+    background-color: rgb(232, 232, 232);
+    transition: all 300ms ease;
+}
+
+input, textarea {
+    width: 100%;
+    background-color: #242424;
+    color: white;
+    outline: none;
+    border: 3px solid #c8c4cc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 40px;
+    transition: all 300ms ease;
+}
+
+input:hover, textarea:hover {
+    border-color: #dcdfe6;
+}
+
+input:focus, textarea:focus {
+    border-color: rgb(224, 21, 11);
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+    margin-top: 8px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
 }
 
 i {
@@ -90,7 +154,7 @@ i:hover {
     content: "";
     position: absolute;
     height: 3px;
-    background-color: black;
+    background-color: #242424;
     width: 0;
     bottom: -3px;
     right: 0;
@@ -120,6 +184,8 @@ li {
 
 .section__title {
     margin-bottom: 20px;
+    z-index: 100;
+    position: relative;
 }
 
 .section__title--projects {
@@ -128,7 +194,7 @@ li {
 
 .row {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 12px;
 }
@@ -137,8 +203,18 @@ li {
     color: rgb(224, 21, 11);
 }
 
-section:nth-child(even) {
-    background-color: #f0eeee;
+nav,
+.flex {
+    opacity: 1;
+    visibility: visible;
+    transition: all 600ms 800ms;
+}
+
+.modal__open nav,
+.modal__open .flex {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 400ms;
 }
 
 /* NAVIGATION BAR */
@@ -162,6 +238,8 @@ nav {
     margin: 0 12px;
     color: #242424;
     font-weight: 700;
+    z-index: 100;
+    position: relative;
 }
 
 .nav__link--anchor-primary {
@@ -181,6 +259,8 @@ nav {
     margin: 0 12px;
     filter: invert(1);
     transition: all 300ms ease;
+    z-index: 100;
+    position: relative;
 }
 
 /* ABOUT ME */
@@ -189,6 +269,7 @@ nav {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 
 .about-me__info {
@@ -229,6 +310,8 @@ nav {
 
 .about-me__picture {
     width: 100%;
+    z-index: 100;
+    position: relative;
 }
 
 .about-me__info--title {
@@ -236,6 +319,8 @@ nav {
     margin-bottom: 16px;
     animation: fade-up 650ms 400ms backwards;
     transition: all 300ms ease;
+    z-index: 100;
+    position: relative;
 }
 
 .about-me__info--para {
@@ -243,12 +328,16 @@ nav {
     margin-bottom: 28px;
     animation: fade-up 650ms 600ms backwards;
     transition: all 300ms ease;
+    z-index: 100;
+    position: relative;
 }
 
 .about-me__link {
     font-size: 20px;
     color: #242424;
     padding: 0 16px;
+    z-index: 100;
+    position: relative;
 }
 
 .about-me__links {
@@ -276,6 +365,7 @@ nav {
 .about-me__img {
     width: 100%;
     animation: fade-in 1200ms 1000ms backwards;
+    z-index: 100;
 }
 
 @keyframes fade-in {
@@ -304,60 +394,240 @@ nav {
     }
 }
 
+.mail__btn {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: #242424;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
+    color: white;
+    position: fixed;
+    bottom: 32px;
+    right: 40px;
+    z-index: 500;
+}
+
+/* MODAL */
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 900px;
+    height: 700px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    visibility: hidden;
+    z-index: -1;
+    transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+  }
+
+  .modal__open .modal {
+    z-index: 100;
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
+    visibility: visible;
+  }
+
+  .modal__half {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: all 300ms ease;
+  }
+
+  .modal__open .modal__about,
+  .modal__open .modal__contact {
+    transform: translateX(0%);
+  }
+
+  .modal__about {
+    background-color: rgb(245, 245, 245);
+    padding: 40px 72px;
+    transform: translateX(-110%);
+  }
+
+  .modal__title {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 26px;
+  }
+
+  .modal__sub-title {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+  }
+
+  .modal__contact {
+    background-color: #242424;
+    color: white;
+    padding: 40px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(110%);
+  }
+
+  .modal__title--contact {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .modal__sub-title--contact {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .form__item {
+    margin-bottom: 20px;
+  }
+
+  .form__submit {
+    background-color: rgb(224, 21, 11);
+    border: 2px solid rgb(224, 21, 11);
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    max-width: 240px;
+    padding: 12px 24px;
+    font-size: 20px;
+    transition: all 300ms ease;
+  }
+
+  .form__submit:hover {
+    border-color: white;
+    background-color: transparent;
+  }
+
+  .form__submit:active {
+    border-color: rgb(224, 21, 11);
+    color: rgb(224, 21, 11);
+  }
+
+  .modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+  }
+
+  .modal__overlay--loading {
+    background-color: #242424;
+    font-size: 80px;
+  }
+
+  .modal__overlay--success {
+    background-color: #4bb543;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    padding: 28px;
+  }
+
+  .modal__overlay--visible {
+    z-index: 1;
+    display: flex;
+  }
+
+  .fa-spinner {
+    animation: spinner 750ms infinite linear;
+  }
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+  .modal__exit {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 36px;
+    z-index: 100;
+    cursor: pointer;
+  }
+
 /* TECH STACK */
 
- .language__img {
+#languages {
+    background-color: #e8e8e8;
+}
+
+.language__img {
     width: 100%;
     max-width: 100px;
     transition: all 300ms ease;
- }
+    z-index: 100;
+    position: relative;
+}
 
- .language:hover .language__img {
+.language:hover .language__img {
     filter: brightness(80%);
     opacity: 0.86;
     transform: scale(0.9);
- }
+}
 
- .language {
+.language {
     width: 25%;
     display: flex;
     justify-content: center;
     position: relative;
- }
+}
 
- .language__img--wrapper {
+.language__img--wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 25px 16px;
- }
+}
 
- .language__list {
+.language__list {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
- }
+}
 
- .language__name {
+.language__name {
     position: absolute;
     bottom: 0;
     transform: scale(0);
     transition: all 300ms ease;
     font-size: 20px;
     opacity: 0;
- }
+}
 
- .language:hover .language__name {
+.language:hover .language__name {
     transform: scale(1);
     opacity: 1;
- }
+}
 
  /* PROJECTS */
 
- .project {
+.project {
     margin-bottom: 130px;
- }
+    z-index: 100;
+    position: relative;
+}
 
 .project:last-child {
     margin-bottom: 40px;
@@ -442,7 +712,11 @@ nav {
  /* FOOTER */
 
 footer {
-    background-color: rgb(224, 21, 11);
+    background-color: #e8e8e8;
+}
+
+.fa-arrow-up:before {
+    color: #242424;
 }
 
 .footer__row {
@@ -456,6 +730,8 @@ footer {
  .footer__logo--img {
     width: 100px;
     height: 100px;
+    z-index: 100;
+    position: relative;
  }
 
  .footer__social--list {
@@ -464,6 +740,8 @@ footer {
     display: flex;
     justify-content: space-around;
     margin-bottom: 52px;
+    z-index: 100;
+    position: relative;
  }
 
  .footer__social--link,
@@ -471,6 +749,8 @@ footer {
  .footer__logo--popper {
     color: #242424;
     font-weight: bold;
+    z-index: 100;
+    position: relative;
  }
 
  .footer__logo--popper {
@@ -492,8 +772,77 @@ footer {
     opacity: 1;
  }
 
+ /* SHAPES */
+
+ /* shapes on the first row, height = 35vh */
+ /* shapes on the second row, height = 70vh */
+ /* shapes on the third row, height = 95vh */
+
+ /* shapes on the first column, width = 5vw */
+ /* shapes on the second column, width = 50vw */
+ /* shapes on the third column, width = 80vw */
+
+
+.shape {
+    position: fixed;
+    z-index: 1;
+    animation: animate-shapes 1000ms 200ms backwards;
+}
+.shape--0 {
+    top: 8vh;
+    left: 7vw;
+}
+.shape--1 {
+    top: 8vh;
+    left: 50vw;
+    visibility: hidden;
+}
+.shape--2 {
+    top: 8vh;
+    left: 91vw;
+}
+.shape--3 {
+    top: 49vh;
+    left: 7vw;
+}
+.shape--4 {
+    top: 49vh;
+    left: 50vw;
+    visibility: hidden;
+}
+.shape--5 {
+    top: 49vh;
+    left: 91vw;
+}
+.shape--6 {
+    top: 85vh;
+    left: 7vw;
+}
+.shape--7 {
+    top: 85vh;
+    left: 50vw;
+    visibility: hidden;
+}
+.shape--8 {
+    top: 85vh;
+    left: 91vw;
+}
+
+@keyframes animate-shapes {
+    0% {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 /* Small phones, tablets, large smartphones */
- @media (max-width: 768px) {
+ @media (max-width: 883px) {
     nav {
         height: 68px;
     }
@@ -506,7 +855,6 @@ footer {
         font-size: 18px;
     }
 
-
     .language {
         width: calc(100%/3);
     }
@@ -518,6 +866,35 @@ footer {
     .project__description {
         left: 30px;
         padding-right: 30px;
+    }
+
+    .modal {
+        top: 0;
+        left: 0;
+        transform: none;
+        height: auto;
+        width: 100%;
+        flex-direction: column-reverse;
+        border-radius: 0;
+    }
+
+    .modal__half {
+        width: 100%;
+    }
+    
+    .modal__open #languages {
+        z-index: 50;
+        transition: all 300ms ease;
+    }
+
+    .modal__half {
+        z-index: 100;
+        position: relative;
+    }
+
+    #languages {
+        z-index: 2;
+        position: relative;
     }
 
  }
@@ -553,4 +930,62 @@ footer {
         text-align: center;
         margin: 12px 0; 
     }
- }
+
+    .modal__half {
+        padding: 1px;
+    }
+
+    label,
+    h4,
+    h3 {
+        padding: 0 3vw;
+    }
+
+    h4 {
+        padding: 3vh 3vw;
+    }
+
+    h3 {
+        padding-top: 4vh;
+    }
+
+    .fa-times {
+        top: 2px;
+        right: 10px;
+    }
+
+    .form__submit {
+        margin-bottom: 7vw;
+    }
+
+    .modal__para {
+        padding: 0 3vw;
+        padding-bottom: 4vh;
+    }
+
+    .modal__half {
+        z-index: 100;
+        position: relative;
+    }
+
+    #languages {
+        z-index: 2;
+        position: relative;
+    }
+
+    #projects {
+        z-index: 2;
+        position: relative;
+    }
+
+    .shape {
+        visibility: hidden;
+    }
+
+}
+
+@media (max-width: 337px) {
+    .link__hover-effect:after {
+        visibility: hidden;
+    }
+}
