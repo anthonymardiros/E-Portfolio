@@ -905,6 +905,10 @@ footer {
         display: none;
     }
 
+    .project {
+        margin-bottom: 80px;
+    }
+
     .project__description {
         padding: 0;
         left: 0;
@@ -955,7 +959,8 @@ footer {
     }
 
     .form__submit {
-        margin-bottom: 7vw;
+        margin-bottom: 3vh;
+        margin-left: 3vw;
     }
 
     .modal__para {
