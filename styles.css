@@ -964,7 +964,7 @@ footer {
     }
 
     .modal {
-        transform: translateY(7vh);
+        transform: translateY(7.5vh);
     }
 
     .modal__para {
