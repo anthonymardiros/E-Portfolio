@@ -120,6 +120,7 @@ input, textarea {
     border-left: none;
     border-right: none;
     height: 40px;
+    
     transition: all 300ms ease;
 }
 
@@ -905,6 +906,20 @@ footer {
         display: none;
     }
 
+    input {
+        width: 350px;
+        margin-left: 12px;
+    }
+
+    .input--message {
+        width: 350px;
+        margin-left: 12px;
+    }
+
+    #contact__submit {
+        border-radius: 15px;
+    }
+
     .project {
         margin-bottom: 80px;
     }
@@ -975,6 +990,10 @@ footer {
     .modal__half {
         z-index: 100;
         position: relative;
+    }
+
+    .modal__exit {
+        transform: translateX(-5px);
     }
 
     #languages {
