@@ -260,7 +260,7 @@ nav {
     margin: 0 12px;
     filter: invert(1);
     transition: all 300ms ease;
-    z-index: 100;
+    z-index: 1;
     position: relative;
 }
 
